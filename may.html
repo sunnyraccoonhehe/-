@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purgatory Store</title>
+    <script src="libs/gsap/gsap.min.js" defer></script>
+    <script src="libs/gsap/ScrollTrigger.min.js" defer></script>
+    <script src="libs/gsap/ScrollSmoother.min.js" defer></script>
+    <link rel="stylesheet" href="may_out.css">
+    <script src="may_anim.js" defer></script>
+    <meta http-equiv="Content-Language" content="en">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-tipe">
+                <p href="#" class="logo">purgatory</p>
+                <p class="after_logo">Finally you look properly</p>
+            </div>
+
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a id="openModalLink1" class="category" href="#section2">
+                            <img class="photo_category1" src="photoes/Создание иконок (Community) (2).png" alt="Catalog">
+                            catalog
+                        </a>
+                    </li>
+                    <li>
+                        <a id="openModalLink2" class="category" href="#">
+                            <img class="photo_category2" src="photoes/Создание иконок (Community) (1).png" alt="Favorites">
+                            favorites
+                        </a>
+                    </li>
+                    <li>
+                        <a id="openModalLink3" class="category" href="#">
+                            <img class="photo_category3" src="photoes/Создание иконок (Community) (3).png" alt="My bag">
+                            my♥bag
+                        </a>
+                    </li>
+                    <li>
+                        <a id="openModalLink4" class="category" href="#">
+                            <img class="photo_category4" src="photoes/Создание иконок (Community) (4).png" alt="Sign in">
+                            sign♥in
+                        </a>
+                    </li>
+                </ul>
+                
+                <div class="modal" id="myModal2">
+                    <div class="modal-content">
+                        <span class="close2">×</span>
+                        <h2>Your Favorites</h2>
+                        <div id="favorites-items-container"></div>
+                        <p id="empty-favorites-message" style="display: none;">Your favorites list is empty</p>
+                    </div>
+                </div>
+                
+                <div class="modal" id="myModal3">
+                    <div class="modal-content">
+                        <span class="close3">×</span>
+                        <h2>Your Bag</h2>
+                        <div id="bag-items-container"></div>
+                        <p id="empty-bag-message" style="display: none;">Your bag is empty</p>
+                        <div class="bag-total" style="display: none;">
+                            Total: $<span id="bag-total-amount">0.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                </div>
+                <div class="modal" id="myModal4">
+                    <div class="modal-content">
+                        <span class="close4">×</span>
+                        <div class="auth-container">
+                            <div class="auth-tabs">
+                                <button class="auth-tab active" data-tab="login">Sign In</button>
+                                <button class="auth-tab" data-tab="register">Register</button>
+                            </div>
+                            <form id="login-form" class="auth-form active" novalidate>
+                                <div class="form-group">
+                                    <label for="login-email">Email</label>
+                                    <input type="email" id="login-email" 
+                                           class="styled-input"
+                                           placeholder="user@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="login-password">Password</label>
+                                    <input type="password" id="login-password" 
+                                           class="styled-input"
+                                           placeholder="••••••">
+                                </div>
+                                <button type="submit" class="auth-submit">Sign In</button>
+                            </form>
+                            <form id="register-form" class="auth-form">
+                                <div class="form-group">
+                                    <label for="register-name">Name</label>
+                                    <input type="text" id="register-name" required 
+                                           title="Please enter your name"
+                                           oninvalid="this.setCustomValidity('Please enter your name')"
+                                           oninput="this.setCustomValidity('')">
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-email">Email</label>
+                                    <input type="email" id="register-email" required
+                                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                                           title="Please enter a valid email address (e.g. user@example.com)"
+                                           oninvalid="this.setCustomValidity('Please enter a valid email address')"
+                                           oninput="this.setCustomValidity('')">
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-password">Password</label>
+                                    <input type="password" id="register-password" required minlength="6"
+                                           title="Password must be at least 6 characters"
+                                           oninvalid="this.setCustomValidity('Password must be at least 6 characters')"
+                                           oninput="this.setCustomValidity('')">
+                                </div>
+                                <div class="form-group">
+                                    <label for="register-confirm">Confirm Password</label>
+                                    <input type="password" id="register-confirm" required
+                                           title="Please confirm your password"
+                                           oninvalid="this.setCustomValidity('Please confirm your password')"
+                                           oninput="this.setCustomValidity('')">
+                                </div>
+                                <button type="submit" class="auth-submit">Register</button>
+                            </form>
+                            <!-- <div class="auth-message"></div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+   
+    <section class="begin" id="section1">
+        <p class="srcoll_tab">SCROLL DOWN</p>
+    </section>
+    <section class="continue" id="section2">
+        <h1 class="our_items hidden-element">
+            TYPES<br/>OF<br/>ITEMS
+        </h1>
+        <div class="gallery slide-right" id="myDiv">
+            <div class="two">
+                <div class="photo_with_words1">
+                <img class="item item1" src="photoes/photo_2025-04-19_19-19-52.jpg" id="decorations">
+                <p class="words">decorations</p>
+                </div>
+                <div class="photo_with_words3">
+                <img class="item item3" src="photoes/photo_2025-04-19_19-19-53.jpg" id="accessories">
+                <p class="words">accessories</p>
+                </div>
+            </div>
+        <div class="photo_with_words2">
+        <img class="item item2" src="photoes/photo_2025-04-19_19-19-52 (2).jpg" id="clothes">
+        <p class="words">clothes</p>
+        </div>
+        </div>
+    </section>
+    
+    <section class="footer" id="section3">
+        <div class="one">
+            <h2 class="end_words">Stay updated with our news</h2>
+            <div class="act">
+                <form action="#" method="post" class="submit_link" novalidate>
+                    <input type="email" 
+                        placeholder="e-mail address..." 
+                        required
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                        title="Please enter a valid email address (e.g.: user@example.com)"
+                        oninvalid="this.setCustomValidity('Please enter a valid email address containing @ symbol')"
+                        oninput="this.setCustomValidity('')">
+                    <button class="submit">subscribe</button>
+                </form>
+                
+            </div>
+            <p class="footer-subscribe">By subscribing to the newsletter, I consent to the processing of personal data and receiving promotional messages and news about products and services. The site is protected by reCAPTCHA, and Google's Privacy Policy and Terms of Service apply.</p>
+            
+        </div>
+        <div class="two">
+            <img class="last_img" src="photoes/llastt.jpg">
+        </div>
+        <div class="three">
+            <div>
+            <p class="contact1"></p>+7-999-999-99-99
+            <p class="contact2">purgatory_shop@mail.ru</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-link vk"><i class="fab fa-vk"></i>VKontakte</a>
+                <a href="#" class="social-link telegram"><i class="fab fa-telegram"></i>Telegram</a>
+                <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i>YouTube</a>
+            </div>
+            
+        </div>
+    </section>
+</body>
+</html>
